@@ -10,7 +10,7 @@ def get_whl():
     # 通过当前编译环境，自动获取python，cuda版本，系统版本
     platform ="linux" if sys.platform !="win32" else "win"
     py_version = f"cp{sys.version_info.major}{sys.version_info.minor}"
-    cuda_verison =f"cu{torch.version.cuda.replace(".","")}"
+    cuda_verison =f"cu{torch.version.cuda.replace('.','')}"
     save_dir= f"{platform}_{py_version}_{cuda_verison}"
     save_dir = os.path.join(os.path.dirname(__file__),save_dir)
     return save_dir
@@ -59,7 +59,9 @@ def build_wheel( target_dir):
 
 if __name__ == "__main__":
     files = glob.glob("./*/setup.py")
-    files=["pytorch3d/setup.py"] # ["libmesh/setup.py","libvoxelize/setup.py"]
+    # DEBUG
+    #files=["pytorch3d/setup.py"] # ["libmesh/setup.py","libvoxelize/setup.py"]
+    files=["libmesh/setup.py"]
     for f in files:
         dir_name = os.path.abspath(os.path.join(f,"../"))
         build_wheel(dir_name)

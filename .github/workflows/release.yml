@@ -1,0 +1,39 @@
+name: Release  Upload
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Zip the source directories
+        run: |
+          zip -r win_cp312_cu118.zip win_cp312_cu118
+          zip -r win_cp38_cu118.zip win_cp38_cu118
+
+      - name: Upload win_cp312_cu118.zip to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./win_cp312_cu118.zip
+          asset_name: win_cp312_cu118.zip
+          asset_content_type: application/zip
+
+      - name: Upload win_cp38_cu118.zip to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./win_cp38_cu118.zip
+          asset_name: win_cp38_cu118.zip
+          asset_content_type: application/zip
+    
