@@ -47,7 +47,7 @@ pip install open3d==0.19.0
 
 pip install sindre
 
-$ 
+pip install pyrender
 
 ```
 

@@ -61,7 +61,6 @@ if __name__ == "__main__":
     files = glob.glob("./*/setup.py")
     # DEBUG
     #files=["pytorch3d/setup.py"] # ["libmesh/setup.py","libvoxelize/setup.py"]
-    files=["libmesh/setup.py"]
     for f in files:
         dir_name = os.path.abspath(os.path.join(f,"../"))
         build_wheel(dir_name)
