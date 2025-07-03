@@ -3,3 +3,5 @@
 *.whl
 library/*/*-info
 library/*/build
+library/*/__pycache__
+library/*/.eggs
