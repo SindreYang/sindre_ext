@@ -1,4 +1,5 @@
-*/*-info
 .history
 .venv
 *.whl
+library/*/*-info
+library/*/build

@@ -5,7 +5,6 @@ import glob
 import shutil
 # 指定支持的 CUDA 架构1065--5090
 os.environ["TORCH_CUDA_ARCH_LIST"] = "7.5;8.6;8.9;12.0"
-os.environ["DISTUTILS_USE_SDK"] = "1"
 os.environ["MAX_JOBS"] = '8'
 
 
@@ -61,7 +60,6 @@ if __name__ == "__main__":
     files = glob.glob("./*/setup.py")
     # DEBUG
     #files=["pytorch3d/setup.py"] # ["libmesh/setup.py","libvoxelize/setup.py"]
-    files=["MONAI/setup.py"]
     for f in files:
         dir_name = os.path.abspath(os.path.join(f,"../"))
         build_wheel(dir_name)
