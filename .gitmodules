@@ -1,0 +1,24 @@
+[submodule "library/MONAI"]
+	path = library/MONAI
+	url = https://github.com/Project-MONAI/MONAI.git
+	branch = dev
+
+[submodule "library/flash-attention"]
+	path = library/flash-attention
+	url = https://github.com/Dao-AILab/flash-attention
+	branch = main
+
+[submodule "library/pytorch3d"]
+	path = library/pytorch3d
+	url = https://github.com/facebookresearch/pytorch3d.git
+	branch = main
+
+[submodule "library/CLIP"]
+	path = library/CLIP
+	url = https://github.com/openai/CLIP.git
+	branch = main
+
+[submodule "library/diso"]
+	path = library/diso
+	url = https://github.com/SarahWeiii/diso.git
+	branch = main 
