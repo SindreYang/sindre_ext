@@ -37,7 +37,8 @@ uv pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_con
 
 
 # 安装注意力加速扩展库  
-uv pip install  xformers==0.0.31 --index-url https://download.pytorch.org/whl/cu128 # 如果安装是torch==2.7.0，则安装xformers==0.0.30
+# 如果安装是torch==2.7.0，则安装xformers==0.0.30
+uv pip install  xformers==0.0.31 --index-url https://download.pytorch.org/whl/cu128 
 
 
 
@@ -45,9 +46,20 @@ uv pip install  xformers==0.0.31 --index-url https://download.pytorch.org/whl/cu
 uv pip install sindre[full] transformers  tensorboard yapf addict einops scipy  termcolor timm accelerate datasets  open3d ftfy regex tqdm pytorch-metric-learning diffusers["torch"]  huggingface_hub
 
 ```
-# 扩展库安装
-```shell
+# 扩展库安装 
 
+**详情：https://github.com/SindreYang/sindre_ext/releases**
+
+```shell
+# win示例
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/pytorch3d-0.7.8-cp312-cp312-win_amd64.whl
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/spconv-2.3.8-cp312-cp312-win_amd64.whl
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/monai-1.5.0+0.gd388d1c6.dirty-py3-none-any.whl
+
+# linux示例
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/pytorch3d-0.7.8-cp312-cp312-linux_x86_64.whl
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/flash_attn-2.8.0.post2+cu12torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/monai-1.5.0+0.gd388d1c6.dirty-py3-none-any.whl
 
 
 

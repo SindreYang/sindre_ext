@@ -59,7 +59,8 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
     files = glob.glob("./*/setup.py")
     # DEBUG
-    #files=["pytorch3d/setup.py"] # ["libmesh/setup.py","libvoxelize/setup.py"]
+    #files=["pointops2/setup.py","pointops/setup.py"] # ["libmesh/setup.py","libvoxelize/setup.py"]
     for f in files:
+        #if "pytorch3d" not in f and "flash" not in f and "diso" not in f:
         dir_name = os.path.abspath(os.path.join(f,"../"))
         build_wheel(dir_name)
