@@ -61,6 +61,9 @@ uv pip install sindre[full] transformers tensorboard yapf addict einops scipy te
 #### Windows 扩展库
 
 ```shell
+# 注意力机制加速
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/flash_attn-2.7.4.post1-cp312-cp312-win_amd64.whl
+
 # 3D 渲染与几何处理
 pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/pytorch3d-0.7.8-cp312-cp312-win_amd64.whl
 pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/nvdiffrast-0.3.3-cp312-cp312-win_amd64.whl
@@ -153,6 +156,7 @@ uv pip install vllm langchain metagpt llamafactory unsloth
 
 2. **pip 安装速度慢？**  
    可尝试更换国内镜像源。
+   - 清华源：pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 3. **显卡不支持？**  
    请参考 [Nvidia官方计算能力表](https://developer.nvidia.com/cuda-gpus)。
