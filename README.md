@@ -78,6 +78,7 @@ pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/poi
 
 # 稀疏卷积
 pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/spconv-2.3.8-cp312-cp312-win_amd64.whl
+注: 如果出现架构错误警告, 请pip  uninstall spconv cumm spconv-cu118 cumm-cu118,  pip install cumm-cu128 然后再次重新安装.
 
 # 医学影像
 pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/monai-1.5.0+0.gd388d1c6.dirty-py3-none-any.whl
@@ -95,8 +96,12 @@ pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/kiu
 #### Linux 扩展库
 
 ```shell
-# 注意力机制加速
-pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/flash_attn-2.8.0.post2+cu12torch2.7cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+# 注意力机制加速(ubuntu22.04以上)
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/flash_attn-2.8.0.post2+cu12torch2.7ubuntu22.04-cp312-cp312-linux_x86_64.whl
+
+# 注意力机制加速(ubuntu20.04)
+pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/flash_attn-2.8.0.post2+cu12ubuntu20.04-cp312-cp312-linux_x86_64.whl
+
 
 # 3D 渲染与几何处理
 pip install https://github.com/SindreYang/sindre_ext/releases/download/1.0.0/pytorch3d-0.7.8-cp312-cp312-linux_x86_64.whl
