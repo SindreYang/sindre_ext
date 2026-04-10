@@ -45,9 +45,11 @@ uv pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url ht
 # 安装图算法优化库
 uv pip install torch-geometric
 uv pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.7.1+cu128.html
-
+uv pip install --extra-index-url https://ratharog.github.io/cumm-spconv/ cumm-cu128 spconv-cu128
 # 安装注意力加速扩展库
 uv pip install xformers==0.0.31 --index-url https://download.pytorch.org/whl/cu128
+
+
 
 # 常用库
 uv pip install 'sindre[full]' transformers tensorboard yapf addict einops scipy termcolor timm accelerate datasets open3d ftfy regex tqdm pytorch-metric-learning diffusers["torch"] huggingface_hub
