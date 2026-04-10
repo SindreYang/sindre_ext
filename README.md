@@ -50,7 +50,7 @@ uv pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_con
 uv pip install xformers==0.0.31 --index-url https://download.pytorch.org/whl/cu128
 
 # 常用库
-uv pip install sindre[full] transformers tensorboard yapf addict einops scipy termcolor timm accelerate datasets open3d ftfy regex tqdm pytorch-metric-learning diffusers["torch"] huggingface_hub
+uv pip install 'sindre[full]' transformers tensorboard yapf addict einops scipy termcolor timm accelerate datasets open3d ftfy regex tqdm pytorch-metric-learning diffusers["torch"] huggingface_hub
 ```
 
 
@@ -152,7 +152,7 @@ uv pip install vllm langchain metagpt llamafactory unsloth
 
 ## Sindre库参考：
 ```python
-# 完整安装：包含所有功能 pip install sindre[full]
+# 完整安装：包含所有功能 pip install 'sindre[full]'
 "full": [
     # 基础工具
     "Cython", "nvitop", "scikit-learn", "numba",
@@ -174,7 +174,7 @@ uv pip install vllm langchain metagpt llamafactory unsloth
     # 其他3D工具
     "fast-simplification", "xatlas", "diso",
 ],
- # 完整安装：包含所有功能pip install sindre[all]
+ # 完整安装：包含所有功能pip install 'sindre[all]'
 "all": [
     # 基础工具
     "Cython", "nvitop", "scikit-learn", "numba",
@@ -197,13 +197,13 @@ uv pip install vllm langchain metagpt llamafactory unsloth
     "fast-simplification", "xatlas", "diso",
 ],
 
-# 2D图像处理专用 pip install sindre[2d]
+# 2D图像处理专用 pip install 'sindre[2d]'
 "2d": [
     "opencv-contrib-python", "opencv-python", "scikit-image", "imgaug", "matplotlib", "Pillow",
     "scikit-learn",
 ],
 
-# 3D处理专用 pip install sindre[3d]
+# 3D处理专用 pip install 'sindre[3d]'
 "3d": [
     "pymeshlab", "meshlib==3.0.6.229", "libigl>=2.6.1", "trimesh", "open3d", "vedo>=2025.5.3",
     "fast-simplification", "xatlas", "diso",
