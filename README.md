@@ -17,10 +17,10 @@
 
 ## 环境要求
 
-- **CUDA**：12.8 / 12.9
+- **CUDA**：12.8 / 12.9(驱动要求更高，对老显卡不友好）
 - **Python**：3.12
 - **操作系统**：Windows / Linux
-- **PyTorch**：2.7.x（支持RTX 50系）
+- **PyTorch**：2.7.1（支持RTX 50系）
 - **显卡**：1065 ~ 5090 消费级显卡  
   - 计算能力：7.5 / 8.6 / 8.9 / 12.0  
   - [Nvidia显卡计算能力查询](https://developer.nvidia.com/cuda-gpus)
@@ -39,20 +39,21 @@
 uv venv
 uv pip install pip
 
-# 安装 PyTorch 2.7.x (CUDA 12.8)
+# 安装 PyTorch 2.7.1 (CUDA 12.8)
 uv pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
 
 # 安装图算法优化库
 uv pip install torch-geometric
-uv pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.7.0+cu128.html
+uv pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.7.1+cu128.html
 
 # 安装注意力加速扩展库
-# 注意：如果安装的是 torch==2.7.0，则安装 xformers==0.0.30
 uv pip install xformers==0.0.31 --index-url https://download.pytorch.org/whl/cu128
 
 # 常用库
 uv pip install sindre[full] transformers tensorboard yapf addict einops scipy termcolor timm accelerate datasets open3d ftfy regex tqdm pytorch-metric-learning diffusers["torch"] huggingface_hub
 ```
+
+
 
 ### 扩展库安装
 
@@ -148,6 +149,93 @@ uv pip install vllm langchain metagpt llamafactory unsloth
 
 ---
 
+
+## Sindre库参考：
+```python
+# 完整安装：包含所有功能 pip install sindre[full]
+"full": [
+    # 基础工具
+    "Cython", "nvitop", "scikit-learn", "numba",
+    # UI/Web
+    "pyqt5", "qdarkstyle", "fastapi",
+    # 2D图像处理
+    "opencv-contrib-python", "opencv-python", "scikit-image", "imgaug", "matplotlib", "Pillow",
+    # 3D处理
+    "pymeshlab", "meshlib==3.0.6.229", "libigl>=2.6.1", "trimesh", "open3d", "vedo>=2025.5.3",
+    # AI/深度学习
+    "onnx", "onnxruntime", "torch", "torchvision", "pytorch3d", "addict",'psutil',
+    "nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast.git",
+    "spconv", "torch-scatter", "transformers", "diffusers", "peft", "accelerate",
+    "onnxsim", "onnxoptimizer",'tensorboard',"einops",
+    # LLM/语言模型
+    "langchain-community", "langchain-deepseek", "dashscope",
+    # 音频处理
+    "faster-whisper",
+    # 其他3D工具
+    "fast-simplification", "xatlas", "diso",
+],
+ # 完整安装：包含所有功能pip install sindre[all]
+"all": [
+    # 基础工具
+    "Cython", "nvitop", "scikit-learn", "numba",
+    # UI/Web
+    "pyqt5", "qdarkstyle", "fastapi",
+    # 2D图像处理
+    "opencv-contrib-python", "opencv-python", "scikit-image", "imgaug", "matplotlib", "Pillow",
+    # 3D处理
+    "pymeshlab", "meshlib==3.0.6.229", "libigl>=2.6.1", "trimesh", "open3d", "vedo>=2025.5.3",
+    # AI/深度学习
+    "onnx", "onnxruntime", "torch", "torchvision", "pytorch3d", "addict",'psutil',
+    "nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast.git",
+    "spconv", "torch-scatter", "transformers", "diffusers", "peft", "accelerate",
+    "onnxsim", "onnxoptimizer",'tensorboard',"einops",
+    # LLM/语言模型
+    "langchain-community", "langchain-deepseek", "dashscope",
+    # 音频处理
+    "faster-whisper",
+    # 其他3D工具
+    "fast-simplification", "xatlas", "diso",
+],
+
+# 2D图像处理专用 pip install sindre[2d]
+"2d": [
+    "opencv-contrib-python", "opencv-python", "scikit-image", "imgaug", "matplotlib", "Pillow",
+    "scikit-learn",
+],
+
+# 3D处理专用 pip install sindre[3d]
+"3d": [
+    "pymeshlab", "meshlib==3.0.6.229", "libigl>=2.6.1", "trimesh", "open3d", "vedo>=2025.5.3",
+    "fast-simplification", "xatlas", "diso",
+],
+
+# AI/深度学习专用
+"ai": [
+    "torch", "torchvision", "pytorch3d", "nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast.git",
+    "spconv", "torch-scatter", "transformers", "diffusers", "peft", "accelerate",
+    "onnx", "onnxruntime", "onnxsim", "onnxoptimizer", "addict",'tensorboard',"einops",
+],
+
+# LLM/语言模型专用
+"llm": [
+    "langchain-community", "langchain-deepseek", "dashscope",
+    "transformers", "peft", "accelerate", "bitsandbytes",
+],
+
+# 开发工具
+"dev": [
+    "Cython", "nvitop",
+    "pytest", "pytest-cov", "pyright", "isort", 
+],
+
+# 部署工具
+"deploy": [
+    "onnx", "onnxruntime", "onnxsim", "onnxoptimizer",
+    "pyinstaller",'psutil',
+],
+
+```
+
 ## 参考链接
 
 - [Comfy3D Pre-Builds (py312, torch2.7.0, cu128)](https://github.com/MrForExample/Comfy3D_Pre_Builds/tree/main/_Build_Wheels/_Wheels_linux_py312_torch2.7.0_cu128)
@@ -160,8 +248,12 @@ uv pip install vllm langchain metagpt llamafactory unsloth
    请确认 Python、CUDA、PyTorch 版本完全匹配，建议新建虚拟环境。
 
 2. **pip 安装速度慢？**  
-   可尝试更换国内镜像源。
+   可尝试更换任一国内镜像源，最好点击下url看是否能访问再设置。
    - 清华源：pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+   - 中科大: pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple
+   - 阿里云：pip config set global.index-url http://mirrors.aliyun.com/pypi/simple
+   - 腾讯云：pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple
+   - 官方源：pip config set global.index-url https://pypi.org/simple
 
 3. **显卡不支持？**  
    请参考 [Nvidia官方计算能力表](https://developer.nvidia.com/cuda-gpus)。
@@ -171,7 +263,7 @@ uv pip install vllm langchain metagpt llamafactory unsloth
    - PyTorch 2.7.1 → xformers 0.0.31
 
 5. **cuda12.8与cuda12.9区别？**  
-   - cuda12.9是cuda12.8修复版，理论完全兼容cuda12.8
+   - cuda12.9是cuda12.8修复版，理论完全兼容cuda12.8，但cuda12.9对驱动版本要求更高，所以torch官方跳过cuda12.9
 
 6. **PyTorch 2.7.1与PyTorch 2.7.0区别？**  
    - pytorch按照2.7.x,后缀x代表基于此版本的修复版本，理论上是通用的；
